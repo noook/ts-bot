@@ -1,0 +1,31 @@
+{
+  "name": "ts-bot",
+  "version": "1.0.0",
+  "description": "A discord.js bot made with Typescript",
+  "dependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^12.7.3",
+    "@types/ws": "^6.0.1",
+    "discord.js": "discordjs/discord.js#master",
+    "discord.js-commando": "discordjs/Commando#master",
+    "dotenv": "^8.0.0",
+    "mikro-orm": "^2.7.6",
+    "module-alias": "^2.2.0",
+    "pg": "^7.12.1",
+    "typescript": "^3.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1",
+    "ts-loader": "^6.0.2"
+  },
+  "_moduleAliases": {
+    "@": "dist"
+  },
+  "scripts": {
+    "compile": "tsc && node --inspect dist/index.js",
+    "dev": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run compile\""
+  },
+  "keywords": [],
+  "author": "Neil Richter <me@neilrichter.com> (https://neilrichter.com/)",
+  "license": "ISC"
+}
