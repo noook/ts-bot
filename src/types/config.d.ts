@@ -4,7 +4,9 @@ export interface Config {
   owner: string;
   prefix: string;
   db: {
-    client: string;
+    host: string;
+    port: string;
+    driver: string;
     name: string;
     user: string;
     password: string;

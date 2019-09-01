@@ -6,7 +6,9 @@ export const config: Config = {
   owner: process.env.BOT_OWNER,
   prefix: process.env.BOT_PREFIX,
   db: {
-    client: process.env.DB_CLIENT,
+    port: process.env.DB_PORT,
+    host: process.env.DB_HOST,
+    driver: process.env.DB_DRIVER,
     name: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,

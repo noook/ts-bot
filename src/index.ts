@@ -1,9 +1,12 @@
 import 'module-alias/register';
 import 'dotenv/config';
+import "reflect-metadata";
 import { join } from 'path';
 import { config } from '@/config';
+import { initConnection } from '@/orm';
 import Bot from './bot';
 
+initConnection();
 const bot = new Bot(config);
 bot.registry
   .registerDefaultTypes()

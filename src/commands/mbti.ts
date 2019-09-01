@@ -1,5 +1,7 @@
 
 import { CommandoClient, CommandoMessage, Command } from 'discord.js-commando';
+import { DiscordUser } from '@/entity';
+import { orm } from '@/orm';
 
 export default class MBTIQuizCommand extends Command {
   constructor(client: CommandoClient) {
@@ -13,6 +15,9 @@ export default class MBTIQuizCommand extends Command {
   }
 
   async run(msg: CommandoMessage) {
+    const user = new DiscordUser(msg.author);
+    console.log(user);
+    console.log(orm);
     return msg.reply("I'm sending you the test in your DMs, follow the instructions !");
   }
 };
