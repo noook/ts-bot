@@ -6,12 +6,14 @@ import { config } from '@/config';
 import { initConnection } from '@/orm';
 import Bot from './bot';
 
+console.clear();
 initConnection();
 const bot = new Bot(config);
+
 bot.registry
   .registerDefaultTypes()
   .registerGroups([
-    ['quiz', 'Some quizzes'],
+    ['test', 'MBTI Test'],
   ])
   .registerDefaultGroups()
   .registerDefaultCommands({

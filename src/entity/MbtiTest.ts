@@ -48,7 +48,7 @@ export class MbtiTest {
   @Column()
   completedAt?: Date;
 
-  @OneToMany(type => MbtiAnswer, answer => answer.test)
+  @OneToMany(type => MbtiAnswer, answer => answer.test, { cascade: true, onDelete: 'CASCADE' })
   answers: MbtiAnswer[];
 
   constructor(user: DiscordUser) {

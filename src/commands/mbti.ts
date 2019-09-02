@@ -1,13 +1,13 @@
 
 import { CommandoClient, CommandoMessage, Command } from 'discord.js-commando';
-import { DiscordUser } from '@/entity';
-import { orm } from '@/orm';
+import { DiscordUserRepository } from '@/repository';
+import { getCustomRepository } from 'typeorm';
 
 export default class MBTIQuizCommand extends Command {
   constructor(client: CommandoClient) {
     super(client, {
       name: 'mbti',
-      group: 'quiz',
+      group: 'test',
       memberName: 'mbti',
       description: 'Starts an MBTI test',
       examples: ['!mbti'],
@@ -15,9 +15,8 @@ export default class MBTIQuizCommand extends Command {
   }
 
   async run(msg: CommandoMessage) {
-    const user = new DiscordUser(msg.author);
-    console.log(user);
-    console.log(orm);
+    const userRepository = getCustomRepository(DiscordUserRepository);
+    const user = await userRepository.updateOrCreate(msg.author);
     return msg.reply("I'm sending you the test in your DMs, follow the instructions !");
   }
 };

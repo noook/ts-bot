@@ -8,7 +8,7 @@ export class MbtiAnswer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(type => MbtiTest)
+  @ManyToOne(type => MbtiTest, test => test.answers)
   test: MbtiTest;
 
   @Column()

@@ -1,18 +1,26 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Dichotomy } from '@/types/mbti';
+import { Dichotomy, IndexedQuestion } from '@/types/mbti';
 
 @Entity()
 export class MbtiQuestion {
+
+  constructor(data?: IndexedQuestion) {
+    if (data) {
+      this.number = data.index;
+      this.key = data.position;
+      this.value = data.value;
+    }
+  }
 
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  step: number;
+  number: number;
 
   @Column()
   key: 'left' | 'right';
 
-  @Column({ nullable: true })
-  value?: Dichotomy;
+  @Column()
+  value: Dichotomy;
 }

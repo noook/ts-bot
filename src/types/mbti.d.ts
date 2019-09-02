@@ -1,32 +1,25 @@
 import { Snowflake, MessageReaction, User } from "discord.js";
 
-export interface MbtiTest {
-  id: number;
-  discord_id: Snowflake;
-  step: number;
-  completed: Boolean;
-}
-
 export type QuestionPosition = 'left' | 'right';
 export type Dichotomy = 'I' | 'E' | 'S' | 'N' | 'T' | 'F' | 'P' | 'J';
 export type DichotomyCouple = [Dichotomy, Dichotomy];
 export interface UserMbtiResult {
-  [key: string]: string
+  [key: string]: string;
 }
 
-export interface MbtiQuestion {
-  step: number;
+export interface QuestionBase {
   position: QuestionPosition;
-  label: string;
-  value: string;
+  label: {
+    [lang: string]: string;
+  };
+  value: Dichotomy
 }
 
-export interface MbtiAnswer {
-  id: number;
-  test: number;
-  question: number;
-  value: string;
+export type IndexedQuestion = QuestionBase & {
+  index: number;
 }
+
+export type QuestionsToLoad = [QuestionBase, QuestionBase][];
 
 export type EmbedColorType = "#ffff00" | "#fab1a0" | "#2ecc71" | "#c56cf0"
 
