@@ -1,5 +1,4 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToMany } from 'typeorm';
-import { User } from 'discord.js';
 import { DiscordUser } from './DiscordUser';
 import { MbtiAnswer } from './MbtiAnswer';
 
@@ -45,16 +44,17 @@ export class MbtiTest {
   @Column({ nullable: true })
   p?: number;
 
-  @Column()
+  @Column({ nullable: true })
   completedAt?: Date;
 
-  @OneToMany(type => MbtiAnswer, answer => answer.test, { cascade: true, onDelete: 'CASCADE' })
+  @OneToMany(type => MbtiAnswer, answer => answer.test)
   answers: MbtiAnswer[];
 
-  constructor(user: DiscordUser) {
-    // this.user = user;
-    this.step = 1;
-    this.completed = false;
+  constructor(user?: DiscordUser) {
+    if (user) {
+      this.user = user;
+      this.step = 1;
+      this.completed = false;
+    }
   }
-
 }

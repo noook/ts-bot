@@ -25,7 +25,7 @@
       "@": "dist"
    },
    "scripts": {
-      "compile": "tsc && node --inspect=0.0.0.0 dist/index.js",
+      "compile": "rm -r dist; tsc && node --inspect=0.0.0.0 dist/index.js",
       "typeorm": "ts-node ./node_modules/typeorm/cli.js",
       "bin": "ts-node dist/bin",
       "dev": "nodemon -e ts --exec \"npm run compile\"",

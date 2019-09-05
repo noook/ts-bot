@@ -17,7 +17,7 @@ module.exports = {
   host,
   password,
   port,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: [
     'dist/entity/**/*.js',

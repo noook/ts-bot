@@ -10,5 +10,8 @@ export interface Config {
     name: string;
     user: string;
     password: string;
-  }
+  },
+  test: {
+    length: number;
+  },
 }

@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
-import { Dichotomy, IndexedQuestion } from '@/types/mbti';
+import { Dichotomy, IndexedQuestion, QuestionPosition } from '@/types/mbti';
 
 @Entity()
 export class MbtiQuestion {
@@ -19,7 +19,7 @@ export class MbtiQuestion {
   number: number;
 
   @Column()
-  key: 'left' | 'right';
+  key: QuestionPosition;
 
   @Column()
   value: Dichotomy;

@@ -1,7 +1,8 @@
 
 import { CommandoClient, CommandoMessage, Command } from 'discord.js-commando';
-import { DiscordUserRepository } from '@/repository';
 import { getCustomRepository } from 'typeorm';
+import { DiscordUserRepository } from '@/repository';
+import MbtiHelper from '@/helper/mbti-helper';
 
 export default class MBTIQuizCommand extends Command {
   constructor(client: CommandoClient) {
@@ -17,6 +18,7 @@ export default class MBTIQuizCommand extends Command {
   async run(msg: CommandoMessage) {
     const userRepository = getCustomRepository(DiscordUserRepository);
     const user = await userRepository.updateOrCreate(msg.author);
+    await MbtiHelper.createTest(user);
     return msg.reply("I'm sending you the test in your DMs, follow the instructions !");
   }
 };

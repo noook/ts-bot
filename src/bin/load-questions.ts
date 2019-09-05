@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { BaseCommandRequirement, BaseCommand } from './base-command';
+import { BaseCommandRequirement, BaseCommand } from '@/bin/base-command';
 import { MbtiQuestionRepository } from '@/repository';
 
 export default class LoadQuestionsCommand extends BaseCommand implements BaseCommandRequirement {
@@ -10,8 +10,7 @@ export default class LoadQuestionsCommand extends BaseCommand implements BaseCom
     await this.setup();
     const questionRepository = getCustomRepository(MbtiQuestionRepository);
     const { questions } = await import(`${process.cwd()}/resources/questions.json`);
-    console.log(questions);
-    // await questionRepository.loadQuestions(questions);
+    await questionRepository.loadQuestions(questions);
   }  
 }
 

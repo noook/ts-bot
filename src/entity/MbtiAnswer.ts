@@ -8,7 +8,7 @@ export class MbtiAnswer {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(type => MbtiTest, test => test.answers)
+  @ManyToOne(type => MbtiTest, test => test.answers, { onDelete: 'CASCADE' })
   test: MbtiTest;
 
   @Column()
@@ -19,9 +19,12 @@ export class MbtiAnswer {
 
   @Column()
   question: number;
-
-  // constructor(test: MbtiTest, question: number) {
-  //   this.test = test;
-  //   this.question = question;
-  // }
+  
+  constructor(test?: MbtiTest, step?: number, question?: number) {
+    if (test && question && step) {
+      this.test = test;
+      this.step = step;
+      this.question = question;
+    }
+  }
 }
