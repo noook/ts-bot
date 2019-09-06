@@ -3,6 +3,7 @@ import { CommandoClient, CommandoMessage, Command } from 'discord.js-commando';
 import { getCustomRepository } from 'typeorm';
 import { DiscordUserRepository } from '@/repository';
 import MbtiHelper from '@/helper/mbti-helper';
+import Translator, { TranslatorLangs } from '@/translations';
 
 export default class MBTIQuizCommand extends Command {
   constructor(client: CommandoClient) {
@@ -19,6 +20,6 @@ export default class MBTIQuizCommand extends Command {
     const userRepository = getCustomRepository(DiscordUserRepository);
     const user = await userRepository.updateOrCreate(msg.author);
     await MbtiHelper.createTest(user);
-    return msg.reply("I'm sending you the test in your DMs, follow the instructions !");
+    return msg.reply(Translator.trans(TranslatorLangs.FR, 'common.hello', { name: 'Neil' }));
   }
 };
