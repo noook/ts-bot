@@ -1,5 +1,6 @@
 export default {
   common: {
-    hello: 'Hello {:name}',
+    hello: 'Bonjour {:name}',
+    letstalkx: 'Très bien ! Je te parlerai en français en message privé !',
   },
 };
