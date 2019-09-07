@@ -8,7 +8,7 @@ export class MbtiTest {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne(type => DiscordUser, user => user.tests)
+  @ManyToOne(type => DiscordUser, user => user.tests, { onDelete: 'CASCADE' })
   user: DiscordUser;
 
   @Column()
