@@ -28,9 +28,7 @@ export default class MBTIQuizCommand extends Command {
 
     let test = await MbtiHelper.currentTest(user);
 
-    if (null === test) {
-      test = await MbtiHelper.createTest(user);
-    }
+    test = null === test ?  await MbtiHelper.createTest(user) : await MbtiHelper.resetOrResume(msg.author, test);
 
     return msg.reply(Translator.trans(TranslatorLangs[user.locale], 'common.hello', { name: 'Neil' }));
   }

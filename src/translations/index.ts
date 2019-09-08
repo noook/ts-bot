@@ -1,6 +1,8 @@
 import { TranslatorParam, Translations } from '@/types/translator';
 import commonFr from './common.fr';
 import commonEn from './common.en';
+import mbtiFr from './mbti.fr';
+import mbtiEn from './mbti.en';
 
 export enum TranslatorLangs {
   FR = 'fr',
@@ -13,10 +15,12 @@ class Translator {
   constructor() {
     this.translations = {
       [TranslatorLangs.FR]: {
-        ...commonFr
+        ...commonFr,
+        ...mbtiFr,
       },
       [TranslatorLangs.EN]: {
         ...commonEn,
+        ...mbtiEn,
       },
     };
   }
