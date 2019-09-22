@@ -4,7 +4,9 @@ import { getCustomRepository, AfterUpdate } from 'typeorm';
 import { DiscordUserRepository } from '@/repository';
 import MbtiHelper from '@/helper/mbti-helper';
 import LocaleHelper from '@/helper/locale-helper';
-import Translator, { TranslatorLangs } from '@/translations';
+import { Message } from 'discord.js';
+import eventHandler from '@/helper/event-handler';
+import { EVENT } from '@/types/events';
 
 export default class MBTIQuizCommand extends Command {
   constructor(client: CommandoClient) {
@@ -32,6 +34,10 @@ export default class MBTIQuizCommand extends Command {
 
     const message = MbtiHelper.askQuestion(test, msg.author);
 
-    return msg.reply(message);
+    return msg.reply(message)
+      .then((sent: Message) => {
+        eventHandler.emit(EVENT.QUESTION_SENT, sent);
+        return sent;
+      });
   }
 };

@@ -1,178 +1,180 @@
 {
-  "1": {
-    "left": "Social interaction stimulates me",
-    "right": "Social interaction bores me"
-  },
-  "2": {
-    "left": "I don't mind speaking in front of a large public",
-    "right": "I have troubles staying calm while speaking to a large audience"
-  },
-  "3": {
-    "left": "I prefer hanging out alone",
-    "right": "I prefer hanging out in group"
-  },
-  "4": {
-    "left": "Sometimes I spend too much time thinking without moving quickly enough to action",
-    "right": "Sometimes I go into action without thinking enough"
-  },
-  "5": {
-    "left": "I prefer the activities that make me move",
-    "right": "I prefer the activities that make me think"
-  },
-  "6": {
-    "left": "I prefer to communicate orally",
-    "right": "I prefer to communicate in writing"
-  },
-  "7": {
-    "left": "I prefer meeting new people",
-    "right": "I prefer to deepen my contacts"
-  },
-  "8": {
-    "left": "I prefer to discuss a non-private topic in a group",
-    "right": "I prefer to discuss a non-private topic alone"
-  },
-  "9": {
-    "left": "I prefer to spend an evening alone with a loved one",
-    "right": "I prefer to spend an evening alone with more people"
-  },
-  "10": {
-    "left": "In general, I am rather perceived as someone thoughtful and reserved",
-    "right": "In general, I am rather perceived as someone dynamic and open"
-  },
-  "11": {
-    "left": "I prefer working in a group with more people",
-    "right": "I prefer working alone or with one person"
-  },
-  "12": {
-    "left": "I prefer giving priority to ideas",
-    "right": "I prefer giving priority to facts"
-  },
-  "13": {
-    "left": "I consider my spirit more creative than practical",
-    "right": "I consider my spirit more practical than creative"
-  },
-  "14": {
-    "left": "I am realistic, I see reality as it is",
-    "right": "I focus on what could be"
-  },
-  "15": {
-    "left": "I remember most of the details I observed",
-    "right": "I remember details when they relate to the overall scheme"
-  },
-  "16": {
-    "left": "I prefer trusting my experience",
-    "right": "I prefer trusting my intuition"
-  },
-  "17": {
-    "left": "I prefer to think of what might happen",
-    "right": "I prefer to focus on the present moment and what happens"
-  },
-  "18": {
-    "left": "I do not have a hard time believing in esoteric stories (eg supernatural stories)",
-    "right": "I can not believe these stories if I have not experienced them personally"
-  },
-  "19": {
-    "left": "I prefer to use safe and proven methods",
-    "right": "I prefer to use new methods"
-  },
-  "20": {
-    "left": "I prefer to consider in detail all aspects of a subject",
-    "right": "I prefer to consider the aspects of a subject globally"
-  },
-  "21": {
-    "left": "I prefer to talk about abstract or theoretical topics",
-    "right": "I prefer to talk about concrete and real subjects"
-  },
-  "22": {
-    "left": "I solve problems by relying on my imagination",
-    "right": "I solve the problems based on my past experience, which has already worked"
-  },
-  "23": {
-    "left": "I prefer to be diplomatic and tactful",
-    "right": "I prefer to be honest and direct"
-  },
-  "24": {
-    "left": "I prefer to help others make logical decisions",
-    "right": "I prefer to help others express their feelings"
-  },
-  "25": {
-    "left": "I prefer to attend situations or discussions where there is emotion",
-    "right": "I prefer to use my ability to analyze situations"
-  },
-  "26": {
-    "left": "I prefer to attend situations or discussions where there is emotion",
-    "right": "I prefer to use my ability to analyze situations"
-  },
-  "27": {
-    "left": "I prefer to use my beliefs and what I feel to make my decisions",
-    "right": "I prefer to rely on verifiable elements to make my decisions"
-  },
-  "28": {
-    "left": "I prefer to draw conclusions based on how I feel and what I know about life",
-    "right": "I prefer to draw conclusions based on logic and careful analysis"
-  },
-  "29": {
-    "left": "I am naturally critical",
-    "right": "I try to please others"
-  },
-  "30": {
-    "left": "I prefer to be warm and friendly",
-    "right": "I prefer to be loyal and fair"
-  },
-  "31": {
-    "left": "When a problem arises, I wonder if it's really true",
-    "right": "When a problem arises, I wonder especially if it is important"
-  },
-  "32": {
-    "left": "I evaluate the impact of my decisions on others",
-    "right": "I solve my problems logically"
-  },
-  "33": {
-    "left": "I decide by analyzing the causes and effects from objective truth criteria (\"That's true \" or \"It's wrong\")",
-    "right": "I decide with my personal values (\"This is good \" or \"It's bad \") and my feelings (\"I like \" or \"I do not like\")"
-  },
-  "34": {
-    "left": "I prefer to get all the information I need on a topic, think about it for a while and make a quick and definitive decision",
-    "right": "I prefer to take the time to consider all the possible elements of a subject before and after making my decision"
-  },
-  "35": {
-    "left": "I prefer change and keep all options open",
-    "right": "I prefer consistency and know what can happen in advance"
-  },
-  "36": {
-    "left": "I prefer that things can happen on their own",
-    "right": "I prefer things to be organized instead"
-  },
-  "37": {
-    "left": "I prefer that things can happen on their own",
-    "right": "I prefer things to be organized instead"
-  },
-  "38": {
-    "left": "I favor my ability to adapt",
-    "right": "I privilege my ability to be methodical and organized"
-  },
-  "39": {
-    "left": "I like to plan my life and master it",
-    "right": "I seek to understand rather than to control"
-  },
-  "40": {
-    "left": "I trust my planning power more than my ability to improvise",
-    "right": "I trust my improvisational power more than my planning power"
-  },
-  "41": {
-    "left": "I prefer to adapt to my environment",
-    "right": "I prefer to control my environment"
-  },
-  "42": {
-    "left": "I prefer to search for information",
-    "right": "I prefer to make the decisions"
-  },
-  "43": {
-    "left": "I do not tend to go back on what I decided, I went to the next step",
-    "right": "I tend to keep looking and reconsidering information even though things have already been fixed"
-  },
-  "44": {
-    "left": "I prefer to engage if the others engage too",
-    "right": "I prefer to press for specific commitments to be made"
+  "mbtiQuestion": {
+    "1": {
+      "left": "Social interaction stimulates me",
+      "right": "Social interaction bores me"
+    },
+    "2": {
+      "left": "I don't mind speaking in front of a large public",
+      "right": "I have troubles staying calm while speaking to a large audience"
+    },
+    "3": {
+      "left": "I prefer hanging out alone",
+      "right": "I prefer hanging out in group"
+    },
+    "4": {
+      "left": "Sometimes I spend too much time thinking without moving quickly enough to action",
+      "right": "Sometimes I go into action without thinking enough"
+    },
+    "5": {
+      "left": "I prefer the activities that make me move",
+      "right": "I prefer the activities that make me think"
+    },
+    "6": {
+      "left": "I prefer to communicate orally",
+      "right": "I prefer to communicate in writing"
+    },
+    "7": {
+      "left": "I prefer meeting new people",
+      "right": "I prefer to deepen my contacts"
+    },
+    "8": {
+      "left": "I prefer to discuss a non-private topic in a group",
+      "right": "I prefer to discuss a non-private topic alone"
+    },
+    "9": {
+      "left": "I prefer to spend an evening alone with a loved one",
+      "right": "I prefer to spend an evening alone with more people"
+    },
+    "10": {
+      "left": "In general, I am rather perceived as someone thoughtful and reserved",
+      "right": "In general, I am rather perceived as someone dynamic and open"
+    },
+    "11": {
+      "left": "I prefer working in a group with more people",
+      "right": "I prefer working alone or with one person"
+    },
+    "12": {
+      "left": "I prefer giving priority to ideas",
+      "right": "I prefer giving priority to facts"
+    },
+    "13": {
+      "left": "I consider my spirit more creative than practical",
+      "right": "I consider my spirit more practical than creative"
+    },
+    "14": {
+      "left": "I am realistic, I see reality as it is",
+      "right": "I focus on what could be"
+    },
+    "15": {
+      "left": "I remember most of the details I observed",
+      "right": "I remember details when they relate to the overall scheme"
+    },
+    "16": {
+      "left": "I prefer trusting my experience",
+      "right": "I prefer trusting my intuition"
+    },
+    "17": {
+      "left": "I prefer to think of what might happen",
+      "right": "I prefer to focus on the present moment and what happens"
+    },
+    "18": {
+      "left": "I do not have a hard time believing in esoteric stories (eg supernatural stories)",
+      "right": "I can not believe these stories if I have not experienced them personally"
+    },
+    "19": {
+      "left": "I prefer to use safe and proven methods",
+      "right": "I prefer to use new methods"
+    },
+    "20": {
+      "left": "I prefer to consider in detail all aspects of a subject",
+      "right": "I prefer to consider the aspects of a subject globally"
+    },
+    "21": {
+      "left": "I prefer to talk about abstract or theoretical topics",
+      "right": "I prefer to talk about concrete and real subjects"
+    },
+    "22": {
+      "left": "I solve problems by relying on my imagination",
+      "right": "I solve the problems based on my past experience, which has already worked"
+    },
+    "23": {
+      "left": "I prefer to be diplomatic and tactful",
+      "right": "I prefer to be honest and direct"
+    },
+    "24": {
+      "left": "I prefer to help others make logical decisions",
+      "right": "I prefer to help others express their feelings"
+    },
+    "25": {
+      "left": "I prefer to attend situations or discussions where there is emotion",
+      "right": "I prefer to use my ability to analyze situations"
+    },
+    "26": {
+      "left": "I prefer to attend situations or discussions where there is emotion",
+      "right": "I prefer to use my ability to analyze situations"
+    },
+    "27": {
+      "left": "I prefer to use my beliefs and what I feel to make my decisions",
+      "right": "I prefer to rely on verifiable elements to make my decisions"
+    },
+    "28": {
+      "left": "I prefer to draw conclusions based on how I feel and what I know about life",
+      "right": "I prefer to draw conclusions based on logic and careful analysis"
+    },
+    "29": {
+      "left": "I am naturally critical",
+      "right": "I try to please others"
+    },
+    "30": {
+      "left": "I prefer to be warm and friendly",
+      "right": "I prefer to be loyal and fair"
+    },
+    "31": {
+      "left": "When a problem arises, I wonder if it's really true",
+      "right": "When a problem arises, I wonder especially if it is important"
+    },
+    "32": {
+      "left": "I evaluate the impact of my decisions on others",
+      "right": "I solve my problems logically"
+    },
+    "33": {
+      "left": "I decide by analyzing the causes and effects from objective truth criteria (\"That's true \" or \"It's wrong\")",
+      "right": "I decide with my personal values (\"This is good \" or \"It's bad \") and my feelings (\"I like \" or \"I do not like\")"
+    },
+    "34": {
+      "left": "I prefer to get all the information I need on a topic, think about it for a while and make a quick and definitive decision",
+      "right": "I prefer to take the time to consider all the possible elements of a subject before and after making my decision"
+    },
+    "35": {
+      "left": "I prefer change and keep all options open",
+      "right": "I prefer consistency and know what can happen in advance"
+    },
+    "36": {
+      "left": "I prefer that things can happen on their own",
+      "right": "I prefer things to be organized instead"
+    },
+    "37": {
+      "left": "I prefer that things can happen on their own",
+      "right": "I prefer things to be organized instead"
+    },
+    "38": {
+      "left": "I favor my ability to adapt",
+      "right": "I privilege my ability to be methodical and organized"
+    },
+    "39": {
+      "left": "I like to plan my life and master it",
+      "right": "I seek to understand rather than to control"
+    },
+    "40": {
+      "left": "I trust my planning power more than my ability to improvise",
+      "right": "I trust my improvisational power more than my planning power"
+    },
+    "41": {
+      "left": "I prefer to adapt to my environment",
+      "right": "I prefer to control my environment"
+    },
+    "42": {
+      "left": "I prefer to search for information",
+      "right": "I prefer to make the decisions"
+    },
+    "43": {
+      "left": "I do not tend to go back on what I decided, I went to the next step",
+      "right": "I tend to keep looking and reconsidering information even though things have already been fixed"
+    },
+    "44": {
+      "left": "I prefer to engage if the others engage too",
+      "right": "I prefer to press for specific commitments to be made"
+    }
   }
 }

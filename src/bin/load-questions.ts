@@ -17,24 +17,29 @@ export default class LoadQuestionsCommand extends BaseCommand implements BaseCom
     await questionRepository.loadQuestions(questions);
 
     const json = {
-      fr: {},
-      en: {},
+      fr: {
+        mbtiQuestion: {},
+      },
+      en: {
+        mbtiQuestion: {},
+      },
     };
 
     questions.forEach((couple: [QuestionBase, QuestionBase], index: number) => {
       const [left, right] = couple;
       index += 1;
 
-      json.fr[index] = {
+      json.fr.mbtiQuestion[index] = {
         left: left.label[TranslatorLangs.FR],
         right: right.label[TranslatorLangs.FR]
       };
 
-      json.en[index] = {
+      json.en.mbtiQuestion[index] = {
         left: left.label[TranslatorLangs.EN],
         right: right.label[TranslatorLangs.EN],
       };
     });
+
     Object.keys(json).forEach((lang: string) => {
       const file = resolve(`${process.cwd()}/src/translations/questions.${lang}.json`);
       writeFileSync(file, JSON.stringify(json[lang], null, 2));
