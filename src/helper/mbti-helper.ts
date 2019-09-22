@@ -6,6 +6,7 @@ import { config } from '@/config';
 import { orm } from '@/orm';
 import EventHandler from '@/helper/event-handler';
 import Translator, { TranslatorLangs } from '@/translations';
+import { HandlerColor } from './reaction-helper';
 
 export enum MbtiEmojiAnswer {
   KIWI = '🥝',
@@ -84,6 +85,19 @@ class MbtiHelper {
         return this.testRepository.resetTest(test);
     }
   }
+
+  public askQuestion(test: MbtiTest, user: User) {
+    const embed = new MessageEmbed()
+      .setColor(HandlerColor.MBTI_ANSWER)
+      .setTitle('Question ' + test.step)
+      .addField('1', 'plop');
+
+    return embed;
+  }
+
+  public async answerQuestion(reaction: MessageReaction, user: User) {
+    console.log(reaction, user);
+  } 
 }
 
 export default new MbtiHelper;

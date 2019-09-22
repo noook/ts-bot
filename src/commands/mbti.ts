@@ -1,6 +1,6 @@
 
 import { CommandoClient, CommandoMessage, Command } from 'discord.js-commando';
-import { getCustomRepository } from 'typeorm';
+import { getCustomRepository, AfterUpdate } from 'typeorm';
 import { DiscordUserRepository } from '@/repository';
 import MbtiHelper from '@/helper/mbti-helper';
 import LocaleHelper from '@/helper/locale-helper';
@@ -30,6 +30,8 @@ export default class MBTIQuizCommand extends Command {
 
     test = null === test ?  await MbtiHelper.createTest(user) : await MbtiHelper.resetOrResume(msg.author, test);
 
-    return msg.reply(Translator.trans(TranslatorLangs[user.locale], 'common.hello', { name: 'Neil' }));
+    const message = MbtiHelper.askQuestion(test, msg.author);
+
+    return msg.reply(message);
   }
 };

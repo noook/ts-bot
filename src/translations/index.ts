@@ -3,6 +3,8 @@ import commonFr from './common.fr';
 import commonEn from './common.en';
 import mbtiFr from './mbti.fr';
 import mbtiEn from './mbti.en';
+import questionsEn from './questions.en.json';
+import questionsFr from './questions.fr.json';
 
 export enum TranslatorLangs {
   FR = 'fr',
@@ -17,10 +19,12 @@ class Translator {
       [TranslatorLangs.FR]: {
         ...commonFr,
         ...mbtiFr,
+        ...questionsFr,
       },
       [TranslatorLangs.EN]: {
         ...commonEn,
         ...mbtiEn,
+        ...questionsEn,
       },
     };
   }

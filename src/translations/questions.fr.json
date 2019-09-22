@@ -1,0 +1,178 @@
+{
+  "1": {
+    "left": "L'interaction sociale me stimule",
+    "right": "L'interaction sociale me fatigue"
+  },
+  "2": {
+    "left": "Je n'ai pas de mal à m'adresser à un public nombreux",
+    "right": "J'ai des difficultés à me détendre lorsque je parle devant de nombreuses personnes"
+  },
+  "3": {
+    "left": "Je préfère sortir seul(e)",
+    "right": "Je préfère sortir en groupe"
+  },
+  "4": {
+    "left": "Il m'arrive parfois de passer trop de temps à réfléchir sans passer assez rapidement à l'action",
+    "right": "Il m'arrive parfois de passer à l'action sans avoir assez réfléchi"
+  },
+  "5": {
+    "left": "Je préfère les activités qui me font bouger",
+    "right": "Je préfère les activités qui me font réfléchir"
+  },
+  "6": {
+    "left": "Je préfère communiquer à l'oral",
+    "right": "Je préfère communiquer par écrit"
+  },
+  "7": {
+    "left": "Je préfère rencontrer de nouvelles personnes",
+    "right": "Je préfère appronfondir mes contacts"
+  },
+  "8": {
+    "left": "Je préfère discuter d'un sujet non privé en groupe",
+    "right": "Je préfère discuter d'un sujet non privé en tête à tête"
+  },
+  "9": {
+    "left": "Je préfère passer une soirée seul(e) avec un proche",
+    "right": "Je préfère passer une soirée avec plus de personnes"
+  },
+  "10": {
+    "left": "En général, je suis plutôt perçu(e) comme quelqu'un de pensif(ve) et réservé(e)",
+    "right": "En général, je suis plutôt perçu(e) comme quelqu'un de dynamique et ouvert(e)"
+  },
+  "11": {
+    "left": "Je préfère travailler en groupe avec plus de personnes",
+    "right": "Je préfère travailler seul(e) ou avec une seule personne"
+  },
+  "12": {
+    "left": "Je préfère donner la priorité aux idées",
+    "right": "Je préfère donner la priorité aux faits"
+  },
+  "13": {
+    "left": "Je considère mon esprit comme plus créatif que pratique.",
+    "right": "Je considère mon esprit comme plus pratique que créatif."
+  },
+  "14": {
+    "left": "Je suis réaliste, je vois la réalité comme elle est",
+    "right": "Je me concentre sur ce qui pourrait être"
+  },
+  "15": {
+    "left": "Je me souviens de la majorité des détails que j'ai observé",
+    "right": "Je me souviens des détails lorsqu'ils ont un lien avec le schéma d'ensemble"
+  },
+  "16": {
+    "left": "Je préfère faire confiance à mon expérience",
+    "right": "Je préfère faire confiance à mon intuition"
+  },
+  "17": {
+    "left": "Je préfère penser à ce qui pourrait arriver",
+    "right": "Je préfère me concentrer sur le moment présent et sur ce qui arrive"
+  },
+  "18": {
+    "left": "Je n'ai pas de mal à croire aux histoires ésotériques (exemple : histoires surnaturelles)",
+    "right": "Je peux avoir du mal à croire aux histoires surnaturelles si je ne les ai pas personnellement vécues"
+  },
+  "19": {
+    "left": "Je préfère utiliser des méthodes sûres et éprouvées",
+    "right": "Je préfère utiliser de nouvelles méthodes"
+  },
+  "20": {
+    "left": "Je préfère considérer en détails tous les aspects d'un sujet",
+    "right": "Je préfère considérer globalement les aspects d'un sujet"
+  },
+  "21": {
+    "left": "Je préfère parler de sujets abstraits ou théoriques",
+    "right": "Je préfère parler de sujets concrets et réels"
+  },
+  "22": {
+    "left": "Je résous les problèmes en comptant sur mon imagination",
+    "right": "Je résous les problèmes en me basant sur mon expérience passée, ce qui a déjà fonctionné"
+  },
+  "23": {
+    "left": "Je préfère être diplomate et faire preuve de tact",
+    "right": "Je préfère être honnête et direct"
+  },
+  "24": {
+    "left": "Je préfère aider les autres à prendre des décisions logiques",
+    "right": "Je préfère aider les autres à exprimer leurs sentiments"
+  },
+  "25": {
+    "left": "Je préfère assister à des situations ou des discussions où il y a de l'émotion",
+    "right": "Je préfère utiliser ma capacité d'analyse des situations"
+  },
+  "26": {
+    "left": "Si vos amis sont vraiment tristes à propos d’une situation, vous êtes plus susceptible de leur offrir un soutien émotionnel",
+    "right": "Si vos amis sont vraiment tristes à propos d’une situation, vous êtes plus susceptible de leur suggérer des solutions au problème."
+  },
+  "27": {
+    "left": "Je préfère utiliser mes convictions et ce que je ressens pour prendre mes décisions",
+    "right": "Je préfère m'appuyer sur des éléments vérifiables pour prendre mes décisions"
+  },
+  "28": {
+    "left": "Je préfère tirer des conclusions basées sur ce que je ressens et ce que je connais de la vie",
+    "right": "Je préfère tirer des conclusions fondées sur la logique et une analyse minutieuse"
+  },
+  "29": {
+    "left": "Je suis naturellement critique",
+    "right": "Je tente de faire plaisir aux autres"
+  },
+  "30": {
+    "left": "Je préfère être chaleureux et amical",
+    "right": "Je préfère être loyal et juste"
+  },
+  "31": {
+    "left": "Quand un problème se pose, je me demande surtout si c'est bien vrai",
+    "right": "Quand un problème se pose, je me demande surtout si c'est bien important"
+  },
+  "32": {
+    "left": "J'évalue l'impact de mes décisions sur les autres.",
+    "right": "Je résous mes problèmes avec logique."
+  },
+  "33": {
+    "left": "Je décide en analysant les causes et les effets à partir de critères objectifs de vérité (\"C'est vrai\" ou \"C'est faux\")",
+    "right": "Je décide avec mes valeurs personnelles (\"C'est bien\" ou \"C'est mal\") et mes sentiments (\"J'aime\" ou \"Je n'aime pas\")"
+  },
+  "34": {
+    "left": "Je préfère obtenir toute l'information dont j'ai besoin sur un sujet, y réfléchir un temps puis prendre une décision rapide et définitive",
+    "right": "Je préfère prendre le temps de considérer tous les éléments possibles d'un sujet avant et après avoir pris ma décision"
+  },
+  "35": {
+    "left": "Je préfère le changement et garder toutes les options ouvertes",
+    "right": "Je préfère la constance et savoir ce qui peut se passer à l'avance"
+  },
+  "36": {
+    "left": "Je préfère que les choses puissent arriver par elles-mêmes",
+    "right": "Je préfère que les choses soient plutôt organisées"
+  },
+  "37": {
+    "left": "Au travail et au domicile, votre environnement de vie change en fonction de votre humeur",
+    "right": "Au travail et au domicile, votre environnement de vie est assez ordonné"
+  },
+  "38": {
+    "left": "Je privilégie ma capacité de m'adapter",
+    "right": "Je privilégie ma capacité d'être méthodique et organisé(e)"
+  },
+  "39": {
+    "left": "J'aime planifier ma vie et la maîtriser",
+    "right": "Je cherche à comprendre plutôt qu'à maîtriser"
+  },
+  "40": {
+    "left": "Je fais plus confiance à mon pouvoir de planification qu’à mon pouvoir d'improvisation",
+    "right": "Je fais plus confiance à mon pouvoir d'improvisation qu’à mon pouvoir de planification"
+  },
+  "41": {
+    "left": "Je préfère m'adapter à mon environnement",
+    "right": "Je préfère contrôler mon environnement"
+  },
+  "42": {
+    "left": "Je préfère chercher les informations",
+    "right": "Je préfère prendre les décisions"
+  },
+  "43": {
+    "left": "Je n'ai pas tendance à revenir sur ce que j'ai décidé, je suis passé(e) à la prochaine étape",
+    "right": "J'ai tendance à continuer de chercher et reconsidérer des informations même si les choses ont déjà été fixées"
+  },
+  "44": {
+    "left": "Je préfère m'engager si les autres s'engagent aussi",
+    "right": "Je préfère faire pression pour que des engagements précis soient pris"
+  }
+}

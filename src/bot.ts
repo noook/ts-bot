@@ -1,6 +1,7 @@
 import { CommandoClient as Client, CommandoMessage } from 'discord.js-commando';
 import { MessageReaction, User } from 'discord.js';
 import { CommandoClientOptions } from 'types/options';
+import ReactionHelper from '@/helper/reaction-helper';
 
 export default class Bot extends Client {
   private config: CommandoClientOptions;
@@ -17,14 +18,16 @@ export default class Bot extends Client {
     this.on('error', console.error);
     this.on('reconnecting', () => console.log('Reconnecting ...'));
     this.on('disconnect', () => console.warn('Disconnected'));
-    this.on('messageReactionAdd', (reaction: MessageReaction, user: User) => {});
+    this.on('messageReactionAdd', (reaction: MessageReaction, user: User) => {
+      if (user.bot || reaction.message.author.id !== this.user.id) return;
+
+      ReactionHelper.handleReaction(reaction, user);
+    });
 
     return this;
   }
 
-  greet(): void
-  {
-    const { username, discriminator } = this.user;
-    console.log(`Logged in as ${username}#${discriminator}`)
+  greet(): void {
+    console.log(`Logged in as ${this.user.tag}`)
   }
 }

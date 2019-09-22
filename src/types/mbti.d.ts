@@ -1,4 +1,5 @@
 import { Snowflake, MessageReaction, User } from "discord.js";
+import { TranslatorLangs } from "@/translations";
 
 export type QuestionPosition = 'left' | 'right';
 export type Dichotomy = 'I' | 'E' | 'S' | 'N' | 'T' | 'F' | 'P' | 'J';
@@ -10,7 +11,7 @@ export interface UserMbtiResult {
 export interface QuestionBase {
   position: QuestionPosition;
   label: {
-    [lang: string]: string;
+    [lang: TranslatorLangs]: string;
   };
   value: Dichotomy
 }
