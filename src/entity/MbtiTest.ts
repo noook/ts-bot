@@ -57,4 +57,9 @@ export class MbtiTest {
       this.completed = false;
     }
   }
+
+  currentTest(): MbtiAnswer | null {
+    if (this.answers === undefined) return null;
+    return this.answers.find(answer => answer.step === this.step);
+  }
 }

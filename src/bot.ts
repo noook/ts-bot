@@ -28,6 +28,6 @@ export default class Bot extends Client {
   }
 
   greet(): void {
-    console.log(`Logged in as ${this.user.tag}`)
+    console.log(`Logged in as ${this.user.tag}`);
   }
 }

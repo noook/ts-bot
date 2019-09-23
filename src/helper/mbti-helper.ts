@@ -1,14 +1,12 @@
 import { MessageEmbed, User, MessageReaction, Message } from 'discord.js';
 import { getCustomRepository } from 'typeorm';
-import { MbtiTestRepository } from '@/repository';
-import { DiscordUser, MbtiTest, MbtiAnswer } from '@/entity';
-import { config } from '@/config';
-import { orm } from '@/orm';
+import { MbtiTestRepository, MbtiAnswerRepository, MbtiQuestionRepository } from '@/repository';
+import { DiscordUser, MbtiTest, MbtiAnswer, MbtiQuestion } from '@/entity';
 import EventHandler from '@/helper/event-handler';
 import Translator, { TranslatorLangs } from '@/translations';
 import { HandlerColor } from './reaction-helper';
 import { shuffle } from '@/utils';
-import eventHandler from '@/helper/event-handler';
+import { Dichotomy } from '@/types/mbti';
 
 export enum MbtiEmojiAnswer {
   KIWI = '🥝',
@@ -17,7 +15,6 @@ export enum MbtiEmojiAnswer {
   PEACH = '🍑',
   PINEAPPLE = '🍍',
   BANANA = '🍌',
-  COCONUT = '🥥',
   CHERRY = '🍒',
 }
 
@@ -32,6 +29,8 @@ type EmojiToAction = {
 
 class MbtiHelper {
   private testRepository: MbtiTestRepository;
+  private answerRepository: MbtiAnswerRepository;
+  private questionRepository: MbtiQuestionRepository;
 
   private actions: EmojiToAction = {
     '🗑': 'reset',
@@ -41,6 +40,8 @@ class MbtiHelper {
   constructor() {
     EventHandler.ormReady(() => {
       this.testRepository = getCustomRepository(MbtiTestRepository);
+      this.answerRepository = getCustomRepository(MbtiAnswerRepository);
+      this.questionRepository = getCustomRepository(MbtiQuestionRepository);
     });
   }
 
@@ -90,32 +91,56 @@ class MbtiHelper {
 
   /**
    * @todo Split ask / answer
-   * @todo Map emoji to MbtiAnswer -> recursive askQuestion
    */
-  public askQuestion(test: MbtiTest, user: User) {
-    const [left, right] = shuffle(Object.values(MbtiEmojiAnswer));
-    const questions = Translator.trans(TranslatorLangs.FR, `mbtiQuestion.${test.step}`) as any;
+  public async askQuestion(test: MbtiTest, user: User) {
+    test = await this.testRepository.findOne(test.id, { relations: ['answers'] });
+    const answer: MbtiAnswer = test.answers.find((el: MbtiAnswer) => el.step === test.step);
+    const [leftAnswer, rightAnswer] = await this.questionRepository.find({ number: answer.question })
+      .then((questions: [MbtiQuestion, MbtiQuestion]) => questions.sort((a, b) => a.key === 'left' ? -1 : 1));
+    const [leftEmoji, rightEmoji] = shuffle(Object.values(MbtiEmojiAnswer));
+
+    const answers = {
+      left: {
+        emoji: leftEmoji,
+        value: leftAnswer.value,
+      },
+      right: {
+        emoji: rightEmoji,
+        value: rightAnswer.value,
+      },
+    };
+    
+    const questions = Translator.trans(TranslatorLangs.FR, `mbtiQuestion.${test.currentTest().question}`) as any;
     const embed = new MessageEmbed()
       .setColor(HandlerColor.MBTI_ANSWER)
       .setFooter('mbti-question')
       .setTitle('Question ' + test.step)
-      .addField(left, questions.left)
-      .addField(right, questions.right);
+      .addField(leftEmoji, questions.left)
+      .addField(rightEmoji, questions.right);
 
-    eventHandler.questionSent(async (msg: Message) => {
-      await msg.react(left);
-      await msg.react(right);
-      const filter = (reaction: MessageReaction, user: User) => {
-        return !user.bot && [left, right].includes(reaction.emoji.name as MbtiEmojiAnswer);
-      }
+    const msg = await user.send(embed);
 
-      const answer = await msg.awaitReactions(filter, { max: 1 })
-        .then(collected => collected.entries().next().value[0])
-        .catch(err => console.error);
-      console.log(answer);
-    });
+    await msg.react(leftEmoji);
+    await msg.react(rightEmoji);
+    const filter = (reaction: MessageReaction, user: User) => {
+      return !user.bot && [leftEmoji, rightEmoji].includes(reaction.emoji.name as MbtiEmojiAnswer);
+    }
 
-    return embed;
+    const emojiAnswer = await msg.awaitReactions(filter, { max: 1 })
+      .then(collected => collected.entries().next().value[0])
+      .catch(err => console.error);
+
+    const { value } = Object.values(answers).find(el => el.emoji === emojiAnswer);
+    await this.saveAnswer(test, value);
+    await msg.delete();
+    this.askQuestion(test, user);
+  }
+
+  private async saveAnswer(test: MbtiTest, value: Dichotomy) {
+    const answer = test.answers.find((el: MbtiAnswer) => el.step === test.step);
+    answer.value = value;
+    test.step += 1;
+    await this.answerRepository.manager.save([test, answer]);
   }
 
   public async answerQuestion(reaction: MessageReaction, user: User) {
