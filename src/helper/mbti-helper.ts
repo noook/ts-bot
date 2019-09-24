@@ -160,8 +160,15 @@ class MbtiHelper {
 
   private async endTest(test: MbtiTest, user: User) {
     this.calculate(test);
-    const message = Translator.trans(TranslatorLangs[test.user.locale], 'mbti.typeResult', { type: test.result });
-    await user.send(message);
+    const locale = TranslatorLangs[test.user.locale];
+    const type = test.result;
+    const messages = [
+      Translator.trans(locale, 'mbti.typeResult', { type }),
+      Translator.trans(locale, 'mbti.akaBase', { alias: Translator.trans(locale, `mbti.typeAka.${type}`)}),
+      Translator.trans(locale, `mbti.summaries.${type}`),
+      Translator.trans(locale, `mbti.detailLink`, { type }),
+    ];
+    await user.send(messages.join("\n\n"));
   }
 
   private calculate(test: MbtiTest) {
