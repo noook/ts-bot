@@ -6,7 +6,8 @@ import EventHandler from '@/helper/event-handler';
 import Translator, { TranslatorLangs } from '@/translations';
 import { HandlerColor } from './reaction-helper';
 import { shuffle } from '@/utils';
-import { Dichotomy } from '@/types/mbti';
+import { Dichotomy, DichotomyCouple } from '@/types/mbti';
+import { config } from '@/config';
 
 export enum MbtiEmojiAnswer {
   KIWI = '🥝',
@@ -131,21 +132,63 @@ class MbtiHelper {
       .catch(err => console.error);
 
     const { value } = Object.values(answers).find(el => el.emoji === emojiAnswer);
-    await this.saveAnswer(test, value);
-    await msg.delete();
-    this.askQuestion(test, user);
+    const ended = await this.saveAnswer(test, value);
+    if (!ended) {
+      return this.askQuestion(test, user);
+    }
+
+    return this.endTest(test);
   }
 
-  private async saveAnswer(test: MbtiTest, value: Dichotomy) {
+  private async saveAnswer(test: MbtiTest, value: Dichotomy): Promise<boolean>{
+    let ended: boolean = false;
     const answer = test.answers.find((el: MbtiAnswer) => el.step === test.step);
     answer.value = value;
     test.step += 1;
+    if (test.step > config.test.length) {
+      test.completed = true;
+      test.completedAt = new Date();
+      ended = true;
+    }
     await this.answerRepository.manager.save([test, answer]);
+    return ended;
   }
 
   public async answerQuestion(reaction: MessageReaction, user: User) {
     // console.log(reaction, user);
   } 
+
+  private endTest(test: MbtiTest) {
+    this.calculate(test);
+  }
+
+  private calculate(test: MbtiTest) {
+    const store = {
+      i: 0,
+      e: 0,
+      s: 0,
+      n: 0,
+      t: 0,
+      f: 0,
+      p: 0,
+      j: 0,
+    };
+    const answers: Dichotomy[] = test.answers.map((answer: MbtiAnswer) => answer.value);
+    answers.forEach((answer: Dichotomy) => store[answer.toLowerCase()] += 1);
+    const pairs: DichotomyCouple[] = [['I', 'E'], ['N', 'S'], ['T', 'F'], ['P', 'J']];
+
+    let result: string = '';
+    pairs.forEach((couple: DichotomyCouple) => {
+      result += couple.sort((a: Dichotomy, b: Dichotomy) => store[b.toLowerCase()] - store[a.toLowerCase()]).shift();
+    });
+    test.result = result;
+
+    Object.entries(store).forEach(([letter, value]) => {
+      test[letter] = value;
+    });
+
+    this.testRepository.manager.save(test);
+  }
 }
 
 export default new MbtiHelper;

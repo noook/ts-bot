@@ -34,6 +34,7 @@ services:
       - 5432:5432
     image: postgres:11.5
     environment:
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
+        TZ: Europe/Paris
+        POSTGRES_USER: ${DB_USER}
+        POSTGRES_DB: ${DB_NAME}
+        POSTGRES_PASSWORD: ${DB_PASSWORD}
