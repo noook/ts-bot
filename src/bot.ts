@@ -29,5 +29,9 @@ export default class Bot extends Client {
 
   greet(): void {
     console.log(`Logged in as ${this.user.tag}`);
+    setInterval(() => {
+      const count = this.guilds.size;
+      this.user.setActivity(`Determining your MBTI Type. Active on ${count} servers`);
+    }, 5000);
   }
 }
