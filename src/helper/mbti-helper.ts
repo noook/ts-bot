@@ -78,7 +78,7 @@ class MbtiHelper {
     }
 
     const action: string = await message.awaitReactions(filter, { max: 1 })
-      .then(collected => this.actions[collected.entries().next().value[0]])
+      .then(collected => this.actions[collected.firstKey()])
       .catch(err => console.error);
 
     switch (action) {
@@ -128,7 +128,7 @@ class MbtiHelper {
     }
 
     const emojiAnswer = await msg.awaitReactions(filter, { max: 1 })
-      .then(collected => collected.entries().next().value[0])
+      .then(collected => collected.firstKey())
       .catch(err => console.error);
 
     const { value } = Object.values(answers).find(el => el.emoji === emojiAnswer);

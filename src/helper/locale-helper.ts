@@ -45,7 +45,7 @@ class MiscHelper {
     }
 
     const lang: string = await message.awaitReactions(filter, { max: 1 })
-        .then(collected => this.languages[collected.entries().next().value[0]].toUpperCase())
+        .then(collected => this.languages[collected.firstKey()].toUpperCase())
         .catch(err => console.error);
 
     const discordUser = await this.discordUserRepository.findOne({ discordId: user.id });
