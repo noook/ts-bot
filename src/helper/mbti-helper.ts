@@ -111,11 +111,11 @@ class MbtiHelper {
       },
     };
     
-    const questions = Translator.trans(TranslatorLangs.FR, `mbtiQuestion.${test.currentTest().question}`) as any;
+    const questions = Translator.trans(TranslatorLangs[test.user.locale], `mbtiQuestion.${test.currentTest().question}`) as any;
     const embed = new MessageEmbed()
       .setColor(HandlerColor.MBTI_ANSWER)
       .setFooter('mbti-question')
-      .setTitle('Question ' + test.step)
+      .setTitle(`Question ${test.step} / ${config.test.length}`)
       .addField(leftEmoji, questions.left)
       .addField(rightEmoji, questions.right);
 
@@ -133,6 +133,7 @@ class MbtiHelper {
 
     const { value } = Object.values(answers).find(el => el.emoji === emojiAnswer);
     const ended = await this.saveAnswer(test, value);
+
     if (!ended) {
       return this.askQuestion(test, user);
     }
@@ -145,12 +146,15 @@ class MbtiHelper {
     const answer = test.answers.find((el: MbtiAnswer) => el.step === test.step);
     answer.value = value;
     test.step += 1;
+
     if (test.step > config.test.length) {
       test.completed = true;
       test.completedAt = new Date();
       ended = true;
     }
+
     await this.answerRepository.manager.save([test, answer]);
+
     return ended;
   }
 
