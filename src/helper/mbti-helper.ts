@@ -94,7 +94,7 @@ class MbtiHelper {
    * @todo Split ask / answer
    */
   public async askQuestion(test: MbtiTest, user: User) {
-    test = await this.testRepository.findOne(test.id, { relations: ['answers'] });
+    test = await this.testRepository.findOne(test.id, { relations: ['answers', 'user'] });
     const answer: MbtiAnswer = test.answers.find((el: MbtiAnswer) => el.step === test.step);
     const [leftAnswer, rightAnswer] = await this.questionRepository.find({ number: answer.question })
       .then((questions: [MbtiQuestion, MbtiQuestion]) => questions.sort((a, b) => a.key === 'left' ? -1 : 1));
@@ -137,7 +137,7 @@ class MbtiHelper {
       return this.askQuestion(test, user);
     }
 
-    return this.endTest(test);
+    return this.endTest(test, user);
   }
 
   private async saveAnswer(test: MbtiTest, value: Dichotomy): Promise<boolean>{
@@ -158,21 +158,15 @@ class MbtiHelper {
     // console.log(reaction, user);
   } 
 
-  private endTest(test: MbtiTest) {
+  private async endTest(test: MbtiTest, user: User) {
     this.calculate(test);
+    const message = Translator.trans(TranslatorLangs[test.user.locale], 'mbti.typeResult', { type: test.result });
+    await user.send(message);
   }
 
   private calculate(test: MbtiTest) {
-    const store = {
-      i: 0,
-      e: 0,
-      s: 0,
-      n: 0,
-      t: 0,
-      f: 0,
-      p: 0,
-      j: 0,
-    };
+    const store = { i: 0, e: 0, s: 0, n: 0, t: 0, f: 0, p: 0, j: 0 };
+
     const answers: Dichotomy[] = test.answers.map((answer: MbtiAnswer) => answer.value);
     answers.forEach((answer: Dichotomy) => store[answer.toLowerCase()] += 1);
     const pairs: DichotomyCouple[] = [['I', 'E'], ['N', 'S'], ['T', 'F'], ['P', 'J']];
