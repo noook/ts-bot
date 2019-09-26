@@ -1,5 +1,7 @@
+import { writeFileSync } from 'fs';
+import { resolve } from 'path';
 import { CommandoClient as Client, CommandoMessage } from 'discord.js-commando';
-import { MessageReaction, User } from 'discord.js';
+import { MessageReaction, User, Guild } from 'discord.js';
 import { CommandoClientOptions } from 'types/options';
 import ReactionHelper from '@/helper/reaction-helper';
 
@@ -31,7 +33,9 @@ export default class Bot extends Client {
     console.log(`Logged in as ${this.user.tag}`);
     setInterval(() => {
       const count = this.guilds.size;
+      const servers: string[] = [...this.guilds.values()].map((guild: Guild) => guild.name);
+      writeFileSync(resolve(process.cwd(), 'servers.txt'), servers.join("\n"));
       this.user.setActivity(`Determining your MBTI Type. Active on ${count} servers`);
-    }, 5000);
+    }, 10000);
   }
 }
