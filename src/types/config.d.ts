@@ -1,6 +1,7 @@
 export interface Config {
   env: string;
   token: string;
+  discordBotToken: string;
   owner: string;
   prefix: string;
   db: {

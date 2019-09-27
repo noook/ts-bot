@@ -2,13 +2,24 @@ import 'module-alias/register';
 import 'dotenv/config';
 import "reflect-metadata";
 import { join } from 'path';
+import DBL from 'dblapi.js';
 import { config } from '@/config';
 import { initConnection } from '@/orm';
 import Bot from './bot';
 
 console.clear();
 initConnection();
+
 const bot = new Bot(config);
+const dbl = new DBL(config.discordBotToken, bot);
+
+dbl.on('posted', () => {
+  console.log('Server count posted!');
+});
+
+dbl.on('error', e => {
+ console.log(`Oops! ${e}`);
+});
 
 bot.registry
   .registerDefaultTypes()
