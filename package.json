@@ -1,21 +1,14 @@
 {
-   "name": "ts-bot",
+   "name": "project-name",
    "version": "1.0.0",
-   "description": "A discord.js bot made with Typescript",
+   "description": "Project description",
    "dependencies": {
       "@types/dotenv": "^6.1.1",
       "@types/node": "^12.7.3",
-      "@types/ws": "^6.0.1",
-      "dblapi.js": "^2.3.0",
-      "discord.js": "discordjs/discord.js#master",
-      "discord.js-commando": "discordjs/Commando#master",
       "dotenv": "^8.0.0",
       "module-alias": "^2.2.0",
-      "mysql": "^2.14.1",
-      "pg": "^7.12.1",
       "reflect-metadata": "^0.1.10",
-      "typeorm": "0.2.18",
-      "typescript": "^3.5.2"
+      "typescript": "^3.7.2"
    },
    "devDependencies": {
       "nodemon": "^1.19.1",
@@ -27,8 +20,6 @@
    },
    "scripts": {
       "compile": "rm -r dist; tsc && node --inspect=0.0.0.0 dist/index.js",
-      "typeorm": "ts-node ./node_modules/typeorm/cli.js",
-      "bin": "ts-node dist/bin",
       "dev": "nodemon -e ts --exec \"npm run compile\"",
       "start": "ts-node src/index.ts"
    },

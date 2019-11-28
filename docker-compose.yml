@@ -1,9 +1,9 @@
 version: '2'
 services:
-  bot:
+  app:
     build: .
     restart: always
-    container_name: bot
+    container_name: app
     tty: true
     command: npm run dev
     volumes:
@@ -12,29 +12,21 @@ services:
     ports:
       - 3003:3003
       - 9229:9229
-    depends_on:
-      - db
-    links:
-      - db
+    # depends_on:
+    #   - db
+    # links:
+    #   - db
     environment:
         NODE_ENV: ${NODE_ENV}
-        DISCORD_TOKEN: ${DISCORD_TOKEN}
-        BOT_OWNER: ${BOT_OWNER}
-        BOT_PREFIX: ${BOT_PREFIX}
-        DB_DRIVER: ${DB_DRIVER}
-        DB_HOST: ${DB_HOST}
-        DB_PORT: ${DB_PORT}
-        DB_USER: ${DB_USER}
-        DB_PASSWORD: ${DB_PASSWORD}
-  db:
-    container_name: db
-    volumes:
-      - ./pgdata:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
-    image: postgres:11.5
-    environment:
-        TZ: Europe/Paris
-        POSTGRES_USER: ${DB_USER}
-        POSTGRES_DB: ${DB_NAME}
-        POSTGRES_PASSWORD: ${DB_PASSWORD}
+#   db:
+#     container_name: db
+#     volumes:
+#       - ./pgdata:/var/lib/postgresql/data
+#     ports:
+#       - 5432:5432
+#     image: postgres:11.5
+#     environment:
+#         TZ: Europe/Paris
+#         POSTGRES_USER: ${DB_USER}
+#         POSTGRES_DB: ${DB_NAME}
+#         POSTGRES_PASSWORD: ${DB_PASSWORD}
