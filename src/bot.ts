@@ -32,8 +32,8 @@ export default class Bot extends Client {
   greet(): void {
     console.log(`Logged in as ${this.user.tag}`);
     setInterval(() => {
-      const count = this.guilds.size;
-      const servers: string[] = [...this.guilds.values()].map((guild: Guild) => guild.name);
+      const count = this.guilds.cache.size;
+      const servers: string[] = [...this.guilds.cache.values()].map((guild: Guild) => guild.name);
       writeFileSync(resolve(process.cwd(), 'servers.txt'), servers.join("\n"));
       this.user.setActivity(`!mbti - Determining your MBTI Type. Active on ${count} servers`);
     }, 10000);
