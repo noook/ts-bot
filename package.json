@@ -19,7 +19,7 @@
    },
    "devDependencies": {
       "nodemon": "^1.19.1",
-      "ts-loader": "^6.0.2",
+      "ts-loader": "^9.4.2",
       "ts-node": "3.3.0"
    },
    "_moduleAliases": {
